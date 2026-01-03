@@ -18,7 +18,7 @@ def load_json_to_dict(file_name: str, parent_path: str = "./data") -> dict:
     file_name = file_name + ".json"
     final_path = PROJECT_ROOT / parent_path / file_name
     
-    with open(final_path, 'r') as file:
+    with open(final_path, 'r', encoding='utf-8') as file:
         data = json.load(file)
     
     return data
@@ -45,7 +45,7 @@ def save_dict_to_json(data_to_dump: dict, file_name: str, parent_path: str = "./
                 f"The file {final_path} already contains content. \nTo overwrite it, you can set the 'overwrite' parameter to True."
             )
     
-    with open(final_path, 'w') as file:
+    with open(final_path, 'w', encoding='utf-8') as file:
         json.dump(data_to_dump, file, indent=4)
 
     return final_path
