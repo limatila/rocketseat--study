@@ -2,5 +2,5 @@
 	"nome": ["Ana", "Bruno", "Carlos", "Diana", "Eduardo", "Fernanda", "Gabriel", "Helena"],
 	"idade": [23, 45, 12, 36, 29, 34, 41, 27],
 	"altura": [1.65, 1.80, 1.40, 1.70, 1.75, 1.60, 1.85, 1.55],
-	"cidade": ["São Paulo", "Rio de Janeiro", "Belo Horizonte", "Curitiba", "Porto Alegre", "Salvador", "Fortaleza", "Brasília"]
+	"cidade": ["São Paulo", "Rio de Janeiro", "Belo Horizonte", "Curitiba", "São Paulo", "Salvador", "Fortaleza", "Brasília"]
 }
