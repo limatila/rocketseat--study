@@ -3,5 +3,6 @@
         "python": "uv run"
     },
     "python-envs.pythonProjects": [],
-    "python-envs.defaultEnvManager": "ms-python.python:venv"
+    "python-envs.defaultEnvManager": "ms-python.python:venv",
+    "jupyter.notebookFileRoot": "${workspaceFolder}"
 }
