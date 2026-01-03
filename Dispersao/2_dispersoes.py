@@ -15,24 +15,6 @@ print(dataframe)
 
 
 # %%
-#* Estatísticas descritivas básicas do DataFrame.
-
-dataframe.describe()
-# Exibe contas básicas, desvios, além da medida conforme gráfico de distribuição de amostra normal.
-
-
-# %%
-
-from common.utils import DataPresentation
-
-DataPresentation.print_sequencially(
-    dataframe['altura'].mean(), # Média Aritmética
-    dataframe['idade'].median(), # Mediana
-    dataframe['cidade'].mode(), # Moda
-)
-
-
-# %%
 
 from common.utils import DataPresentation
 
