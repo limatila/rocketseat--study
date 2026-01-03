@@ -23,7 +23,7 @@ def load_json_to_dict(file_name: str, parent_path: str = "./data") -> dict:
     
     return data
 
-def save_dict_to_json(data_to_dump: dict, file_name: str, parent_path: str = "./data", overwrite: bool = False) -> Path:
+def save_dict_to_json(data_to_dump: dict, file_name: str, parent_path: str = "./output", overwrite: bool = False) -> Path:
     """ Save a dict in a JSON stored file.
 
     :param data_to_dump: "dict to be saved"
