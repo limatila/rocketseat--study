@@ -5,7 +5,7 @@ from pathlib import Path
 from common.config.core import PROJECT_ROOT
 
 
-def load_json_to_dict(file_name: str, parent_path: str = "./data") -> dict:
+def load_json_to_dict(file_name: str, parent_path: str = "./data", exclude_keys: list = []) -> dict:
     """ Load a dict from a JSON saved file.
     
     :param file_name: "file_name.json to load"
@@ -20,6 +20,10 @@ def load_json_to_dict(file_name: str, parent_path: str = "./data") -> dict:
     
     with open(final_path, 'r', encoding='utf-8') as file:
         data = json.load(file)
+    
+    for key in exclude_keys:
+        if key in data:
+            data.pop(key)
     
     return data
 
