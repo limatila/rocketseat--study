@@ -53,3 +53,6 @@ def save_dict_to_json(data_to_dump: dict, file_name: str, parent_path: str = "./
         json.dump(data_to_dump, file, indent=4)
 
     return final_path
+
+
+# save images, plots
