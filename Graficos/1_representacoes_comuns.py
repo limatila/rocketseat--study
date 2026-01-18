@@ -68,12 +68,11 @@ dataframe_ordenado_idade.plot.barh(
     **bars_idade_kwargs
 )
 
-
 # Mostrando labels, em y
 plt.yticks(
     ticks=range(len(dataframe_ordenado_idade)),
     labels=dataframe_ordenado_idade['nome'],
-    rotation=0)
+    rotation=10)
 plt.show()
 
 # %%
