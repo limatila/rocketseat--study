@@ -75,3 +75,11 @@ print(df_clientes.columns)
 
 
 # %%
+
+df_clientes.plot.scatter(
+    x='Tempo de Contrato',
+    y='Custo Total Cobrado',
+    title='Relação entre Tempo de Contrato e Custo Total Cobrado'
+)
+
+# %%
