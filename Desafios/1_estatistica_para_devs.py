@@ -36,6 +36,7 @@ dict_faturamento = {
 }
 
 # %%
+from matplotlib.ticker import FuncFormatter
 
 #* Definições
 
@@ -73,8 +74,6 @@ print(f'Média de vendas: ${media_vendas:.2f}')
 # %%
 
 #* 2. Gráfico de Barras
-
-from matplotlib.ticker import FuncFormatter
 
 # Ordenando dados por data
 df_faturamentos_ordenado = df_faturamentos.sort_values('data_ref')
