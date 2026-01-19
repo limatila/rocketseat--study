@@ -29,8 +29,6 @@ DataPresentation.print_sequencially(
 )
 
 
-
-
 # %%
 
 #* Unificando datasets
@@ -56,6 +54,5 @@ df_unificado.info()
 print('\nDataframe Unificado - Primeiras 5 linhas:\n')
 df_unificado.head(5)
         
-
 
 # %%
