@@ -1,4 +1,4 @@
-customerID,PhoneService,MultipleLines,InternetService,OnlineSecurity,OnlineBackup,DeviceProtection,TechSupport,StreamingTV,StreamingMovies
+Customer_ID,PhoneService,MultipleLines,InternetService,OnlineSecurity,OnlineBackup,DeviceProtection,TechSupport,StreamingTV,StreamingMovies
 7590-VHVEG,No,No phone service,DSL,No,Yes,No,No,No,No
 5575-GNVDE,Yes,No,DSL,Yes,No,Yes,No,No,No
 3668-QPYBK,Yes,No,DSL,Yes,Yes,No,No,No,No
