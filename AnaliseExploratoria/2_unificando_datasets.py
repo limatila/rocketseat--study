@@ -2,8 +2,6 @@
 #* Utilizando vários dataframes de CSVs diferentes para realizar a análise exploratória
 #* com o máximo de dados possíveis.
 
-import pandas as pd
-
 from common.utils import DataPresentation
 from common.utils.DataLoaders import load_csv_to_dataframe
 
