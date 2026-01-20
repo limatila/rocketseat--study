@@ -48,8 +48,8 @@ for coluna_a_corrigir in colunas_booleanas:
 #* Verificando dados ausentes
 
 # dados ausentes por coluna
-print('\nDados Ausentes por Coluna:')
-df_unificado[df_unificado.isna().any(axis=1)]
+print('\nDados Ausentes em cada Index:')
+df_unificado[df_unificado.isna().any(axis=1)]['TotalCharges']
 
 
 # %%
