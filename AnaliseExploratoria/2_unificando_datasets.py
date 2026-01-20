@@ -56,3 +56,16 @@ df_unificado.head(5)
         
 
 # %%
+
+#* Salvando em novo JSON
+
+from common.utils.DataSavers import save_dict_to_json
+
+dict_from_df = df_unificado.to_dict(orient='records')
+
+save_dict_to_json(
+    dict_from_df, 'churn_unificado', overwrite=True
+)
+
+
+# %%
