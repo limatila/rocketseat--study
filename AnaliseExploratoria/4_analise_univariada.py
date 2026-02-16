@@ -32,23 +32,45 @@ print_sequencially(
 
 # %%
 
-#* Plot de barras da quantidade de clientes por uso de:
+#* Plot de barras da quantidade de clientes que usam serviço de telefone:
 
 # Serviço de telefone
 clientes_telefone_porcentagem = (
     (qtd_clientes_servico_telefone / qtd_clientes_servico_telefone.sum()) * 100
 )
 
-bar_plot_telefone = clientes_telefone_porcentagem.plot.bar()
+bar_plot_telefone = clientes_telefone_porcentagem.plot.bar(
+    title='Gráfico de Barras do Uso de Serviço de Telefone',
+    xlabel='Uso de Serviço de Telefone',
+    ylabel='Porcentagem (%)'
+)
 
 bar_plot_telefone.bar_label(bar_plot_telefone.containers[0])
 
 
 # %%
 
-clientes_pagamento_mensal_porcentagem = df_tratado.Contract.value_counts(normalize=True) * 100
+#* Plot de barras da quantidade de clientes por tipo cobrança de contrato:
 
-bar_plot_contratos = clientes_pagamento_mensal_porcentagem.round(2).plot.bar()
+colunas_traduzir = {
+    'Month-to-month': 'Mês a Mês',
+    'One year': 'Um Ano',
+    'Two year': 'Dois Anos'
+}
+
+df_contratos_traduzido = df_tratado.Contract.replace(colunas_traduzir)
+
+clientes_pagamento_mensal_porcentagem = df_contratos_traduzido.value_counts(normalize=True) * 100
+
+clientes_pagamento_mensal_porcentagem = clientes_pagamento_mensal_porcentagem.reindex(
+    ['Mês a Mês', 'Um Ano', 'Dois Anos']
+)
+
+bar_plot_contratos = clientes_pagamento_mensal_porcentagem.round(2).plot.bar(
+    title='Gráfico de Barras do Tipo de Cobrança Mensal',
+    xlabel='Tipo de Cobrança Mensal',
+    ylabel='Porcentagem (%)'
+)
 
 bar_plot_contratos.bar_label(bar_plot_contratos.containers[0])
 

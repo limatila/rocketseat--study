@@ -35,7 +35,12 @@ registros_diferentes_servicos.value_counts()
 #* Mostrando dados
 
 churn_multiplos_servicos = clientes_multiplos_servicos['Churn']
-(churn_multiplos_servicos.value_counts(normalize=True) * 100).plot.bar()
+
+(churn_multiplos_servicos.value_counts(normalize=True) * 100).plot.bar(
+    title='Gráfico de Barras do Churn de Clientes com Múltiplos Serviços',
+    xlabel='Churn',
+    ylabel='Porcentagem (%)'
+)
 
 #* Resultado: 30% dos clientes que possuem multiplos serviços (os 3 ao mesmo tempo) cancelaram contrato
 
@@ -45,7 +50,11 @@ churn_multiplos_servicos = clientes_multiplos_servicos['Churn']
 clientes_sem_multiplos_servicos = df_tratado[~(df_tratado.index.isin(clientes_multiplos_servicos.index))]
 
 churn_sem_multiplos_servicos = clientes_sem_multiplos_servicos['Churn']
-(churn_sem_multiplos_servicos.value_counts(normalize=True) * 100).plot.bar()
+(churn_sem_multiplos_servicos.value_counts(normalize=True) * 100).plot.bar(
+    title='Gráfico de Barras do Churn de Clientes sem Múltiplos Serviços',
+    xlabel='Churn',
+    ylabel='Porcentagem (%)'
+)
 
 #* Resultado do inverso: 25% dos clientes que não possuem multiplos serviços (os 3 ao mesmo tempo) cancelaram contrato
 
