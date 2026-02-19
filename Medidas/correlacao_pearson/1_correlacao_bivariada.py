@@ -10,7 +10,7 @@ df_registro_viagem_carro = pd.DataFrame(dados)
 df_registro_viagem_carro.info()
 
 
-def correlacao_pearson(coluna_x, coluna_y, dataframe) -> np.float64:
+def correlacao_pearson(coluna_x: str, coluna_y: str, dataframe) -> np.float64:
     """ Cálcula correlação da coluna X com coluna Y, método Pearson """
 
     #? Cálculo fórmula de Pearson aplicada:
@@ -54,7 +54,7 @@ DataPresentation.print_sequencially(
     f"Correlação entre velocidade e horas_para_chegar: \n{corr_velocidade_horas}"
 )
 
-#
+# ✅️
 # ? Se observa que, nos registros completamente proporcionais que configurei, 
 # ? (a cada 10 de velocidade, 100 de distancia aumentam proporcionalmente)
 # ? a correlação de Pearson é 1, indicando uma correlação linear perfeita entre velocidade e distância.
@@ -73,6 +73,7 @@ DataPresentation.print_sequencially(
 )
 
 #
+# 🚩
 # ? Já uma correlação aleatória, como a velocidade e a fome do passageiro é simplesmente muito fraca em comparação,
 # ? medindo até -0.52, indicando que não há uma correlação tão forte (e não deveria existir de forma alguma)
 #
