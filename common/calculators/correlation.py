@@ -17,6 +17,11 @@ class CalculadoraCorrelacaoBivariada:
 
         return self.dataframe.corr(method=method)
 
+    def _verificar_colunas_existentes(self, *colunas):
+        for coluna in colunas:
+            if coluna not in self.dataframe.columns:
+                raise KeyError(f"Coluna #'{coluna}' não encontrada no DataFrame")
+
     def correlacao_pearson(self, coluna_x, coluna_y) -> np.float64:
         """ Cálcula correlação da coluna X com coluna Y, método Pearson """
 
@@ -36,9 +41,7 @@ class CalculadoraCorrelacaoBivariada:
 
         # return numerator / denominator
 
-        for coluna in [coluna_x, coluna_y]:
-            if coluna not in self.dataframe.columns:
-                raise KeyError(f"Coluna #'{coluna}' não encontrada no DataFrame")
+        self._verificar_colunas_existentes(coluna_x, coluna_y)
 
         return self.dataframe[coluna_x].corr(self.dataframe[coluna_y], method='pearson')
     
@@ -53,9 +56,7 @@ class CalculadoraCorrelacaoBivariada:
         
         # return 1 - (6 * d_squared_sum) / (n * (n ** 2 - 1))
 
-        for coluna in [coluna_x, coluna_y]:
-            if coluna not in self.dataframe.columns:
-                raise KeyError(f"Coluna #'{coluna}' não encontrada no DataFrame")
+        self._verificar_colunas_existentes(coluna_x, coluna_y)
 
         return self.dataframe[coluna_x].corr(self.dataframe[coluna_y], method='spearman')
     
@@ -69,8 +70,6 @@ class CalculadoraCorrelacaoBivariada:
         
         # return (concordant_pairs - discordant_pairs) / (0.5 * n * (n - 1))
 
-        for coluna in [coluna_x, coluna_y]:
-            if coluna not in self.dataframe.columns:
-                raise KeyError(f"Coluna #'{coluna}' não encontrada no DataFrame")
+        self._verificar_colunas_existentes(coluna_x, coluna_y)
 
         return self.dataframe[coluna_x].corr(self.dataframe[coluna_y], method='kendall')
