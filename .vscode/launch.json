@@ -6,20 +6,26 @@
             "type": "debugpy",
             "request": "launch",
             "program": "${file}",
+            "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
-            "justMyCode": true,
-            "python": "${workspaceFolder}/.venv/Scripts/python.exe"
+            "justMyCode": false,
+            "python": "${workspaceFolder}/.venv/Scripts/python.exe",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
         },
         {
             "name": "Python: AI Study - Current File",
             "type": "debugpy",
             "request": "launch",
             "program": "${file}",
+            "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "justMyCode": false,
             "python": "${workspaceFolder}/.venv/Scripts/python.exe",
             "env": {
-                "PYTHONUNBUFFERED": "1"
+                "PYTHONUNBUFFERED": "1",
+                "PYTHONPATH": "${workspaceFolder}"
             },
             "subProcess": true
         },
@@ -32,7 +38,8 @@
             "justMyCode": false,
             "python": "${workspaceFolder}/.venv/Scripts/python.exe",
             "env": {
-                "PYTHONUNBUFFERED": "1"
+                "PYTHONUNBUFFERED": "1",
+                "PYTHONPATH": "${workspaceFolder}"
             }
         }
     ]
