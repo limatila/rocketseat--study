@@ -67,3 +67,11 @@ print(f"Valor de Assimetria dos valores mensais: {valores_mensais.skew()}")
 
 
 # %%
+
+valores_mensais.plot.box(
+    title="Distribuição dos Valores Mensais",
+    xlabel="Valores Mensais",
+    ylabel="Clientes"
+)
+
+# %%
