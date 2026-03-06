@@ -17,6 +17,9 @@ def load_json_to_dict(file_name: str, parent_path: str = "./data", exclude_keys:
     """ 
     file_name = file_name + ".json"
     final_path = PROJECT_ROOT / parent_path / file_name
+
+    if final_path.is_file() == False:
+        raise FileNotFoundError(f"Arquivo {final_path.__str__().replace(PROJECT_ROOT.__str__(), '')} não existe.")
     
     with open(final_path, 'r', encoding='utf-8') as file:
         data = json.load(file)
