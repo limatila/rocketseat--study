@@ -73,3 +73,21 @@ DataPresentation.print_sequencially(
 
 #* Resultado: 200 outliers foram identificados e tratados sobre a diferença do dataframe original e o tratado.
 
+
+# %%
+
+from scipy.stats import zscore
+
+# * Limpando outliers com o método Z-Score, mais capaz de identificar outliers em distribuições normais, 
+#? também pode ser utilizado em distribuições não normais, desde que haja uma quantidade suficiente de dados.
+
+shape_df_depois = df_outliers_tratados_contratos_mensais
+
+# Calcula o Z-Score para a coluna TotalCharges
+z_scores = zscore(df_tratado_contratos_mensais['TotalCharges'])
+
+# Identifica outliers (Z-Score absoluto > 3)
+outliers_zscore = df_tratado_contratos_mensais[abs(z_scores) > 3]
+
+# Exibe quantidade de outliers encontrados
+print(f"Quantidade de outliers pelo método Z-Score: {outliers_zscore.shape[0]}")
