@@ -69,7 +69,7 @@ nomes_replace = {
 }
 
 #! Cuidado! Isso renomeia como se deve carregar os nomes de colunas no script
-df_clientes.rename(columns=nomes_replace) #inplace=True modifica o DF diretamente, sem redeclaração
+df_clientes.rename(columns=nomes_replace, inplace=True) #inplace=True modifica o DF diretamente, sem redeclaração
 
 print(df_clientes.columns) 
 
