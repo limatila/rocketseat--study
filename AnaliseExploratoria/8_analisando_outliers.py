@@ -80,6 +80,9 @@ from scipy.stats import zscore
 
 # * Limpando outliers com o método Z-Score, mais capaz de identificar outliers em distribuições normais, 
 #? também pode ser utilizado em distribuições não normais, desde que haja uma quantidade suficiente de dados.
+# Mede o quanto cada ponto de dados está distante da média em termos de desvio padrão.
+
+#* Zscore = (Valor - Média) / Desvio Padrão [executado em cada amostra do espaço amostral (dataframe)]
 
 shape_df_depois = df_outliers_tratados_contratos_mensais
 
@@ -87,7 +90,10 @@ shape_df_depois = df_outliers_tratados_contratos_mensais
 z_scores = zscore(df_tratado_contratos_mensais['TotalCharges'])
 
 # Identifica outliers (Z-Score absoluto > 3)
-outliers_zscore = df_tratado_contratos_mensais[abs(z_scores) > 3]
+treshold_zscore = 3 # limite para análise, convenção
+outliers_zscore = df_tratado_contratos_mensais[abs(z_scores) > treshold_zscore] #abs para unificar desvios, positivos e negativos
 
 # Exibe quantidade de outliers encontrados
-print(f"Quantidade de outliers pelo método Z-Score: {outliers_zscore.shape[0]}")
+print(f"Quantidade de outliers pelo método Z-Score: {len(outliers_zscore)}")
+
+# %%
