@@ -24,15 +24,9 @@ df_tratado = pd.DataFrame.from_dict(dados)
 # %%
 
 #* Exemplo de uso do Sweetviz para análise exploratória automatizada:
-
-# Monkey-patch: numpy 2.0 moved VisibleDeprecationWarning to numpy.exceptions
-import numpy as np
-if not hasattr(np, 'VisibleDeprecationWarning'):
-    np.VisibleDeprecationWarning = np.exceptions.VisibleDeprecationWarning
-
 import sweetviz as sv
 
 report = sv.analyze(df_tratado, target_feat='Churn')
-report.show_html('sweetviz_report.html')
+report.show_html('./AnaliseExploratoria/out/sweetviz_report.html', open_browser=False)
 
 # %%
