@@ -21,12 +21,12 @@ colunas_numericas = [
 ]
 
 for coluna_a_corrigir in colunas_numericas:
-        df_unificado[coluna_a_corrigir] = (
-            pd.to_numeric(
-                df_unificado[coluna_a_corrigir],
-                errors='coerce'
-            )
+    df_unificado[coluna_a_corrigir] = (
+        pd.to_numeric(
+            df_unificado[coluna_a_corrigir],
+            errors='coerce'
         )
+    )
 
 colunas_booleanas = [
     'SeniorCitizen',
