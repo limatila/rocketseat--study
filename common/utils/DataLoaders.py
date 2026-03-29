@@ -5,16 +5,19 @@ import pandas as pd
 from common.config.core import PROJECT_ROOT
 
 
-def load_json_to_dict(file_name: str, parent_path: str = "./data", exclude_keys: list = []) -> dict:
+def load_json_to_dict(file_name: str, parent_path: str = "./data", exclude_keys: list[str] = []) -> dict:
     """ Load a dict from a JSON saved file.
     
     :param file_name: "file_name.json to load"
     :type file_name: str
     :param parent_path: "parent directory where the file is located"
     :type parent_path: str
+    :param exclude_keys: "list of keys to exclude"
+    :type exclude_keys: list[str]
     :return: Description
     :rtype: Obtained dict
     """ 
+    
     file_name = file_name + ".json"
     final_path = PROJECT_ROOT / parent_path / file_name
 
@@ -31,13 +34,15 @@ def load_json_to_dict(file_name: str, parent_path: str = "./data", exclude_keys:
     return data
 
 
-def load_csv_to_dataframe(file_name: str, parent_path: str = "./data", **kwargs_pd) -> 'pd.DataFrame':
+def load_csv_to_dataframe(file_name: str, parent_path: str = "./data", exclude_keys: list[str] = [], **kwargs_pd) -> 'pd.DataFrame':
     """ Load a DataFrame from a CSV saved file.
     
     :param file_name: "file_name.csv to load"
     :type file_name: str
     :param parent_path: "parent directory where the file is located"
     :type parent_path: str
+    :param exclude_keys: "list of column names to exclude"
+    :type exclude_keys: list[str]
     :return: Description
     :rtype: Obtained DataFrame
     """ 
@@ -46,5 +51,7 @@ def load_csv_to_dataframe(file_name: str, parent_path: str = "./data", **kwargs_
     final_path = PROJECT_ROOT / parent_path / file_name
     
     dataframe = pd.read_csv(final_path, **kwargs_pd)
+
+    dataframe = dataframe.drop(columns=exclude_keys)
     
     return dataframe
